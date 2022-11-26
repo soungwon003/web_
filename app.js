@@ -4,7 +4,8 @@ const colors = document.getElementsByClassName("jsColor");
 const range = document.getElementById("jsRange");
 const mode = document.getElementById("jsMode");
 const INITIAL_COLOR = "#000000";
-const CANVAS_SIZE = 1000;
+const CANVAS_SIZE_X = 1280;
+const CANVAS_SIZE_Y = 720;
 const saveBtn = document.getElementById("jsSave");
 const link = document.createElement("a");
 const clear = document.getElementById("jsClear");
@@ -17,10 +18,10 @@ const J_Text = document.getElementById("js_Text");
 const Word = document.getElementById("jsWord");
 const Word_Size = document.getElementById("Word_Size");
 const img = new Image();
-canvas.width = CANVAS_SIZE;
-canvas.height = CANVAS_SIZE;
+canvas.width = CANVAS_SIZE_X;
+canvas.height = CANVAS_SIZE_Y;
 ctx.fillStyle = "white";
-ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+ctx.fillRect(0, 0, CANVAS_SIZE_X, CANVAS_SIZE_Y);
 ctx.strokeStyle = "#2c2c2c";
 ctx.lineWidth = 2.5;
 let painting = false;
@@ -75,7 +76,7 @@ function handleModeClick() {
 }
 function handleCanvasClick() {
   if (filling) {
-    ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+    ctx.fillRect(0, 0, CANVAS_SIZE_X, CANVAS_SIZE_Y);
   }
 }
 function handleSaveClick() {
@@ -267,7 +268,7 @@ function loadFile(input) {
 function drawImg() {
   if (dImg == true) {
     ctx.globalAlpha = 0.2;
-    ctx.drawImage(img, 500, 500);
+    ctx.drawImage(img, CANVAS_SIZE_X / 2, CANVAS_SIZE_Y / 2);
     dImg = false;
     ctx.globalAlpha = 1;
   }
@@ -293,7 +294,7 @@ if (saveBtn) {
 }
 if (clear) {
   clear.addEventListener("click", () =>
-    ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE)
+    ctx.clearRect(0, 0, CANVAS_SIZE_X, CANVAS_SIZE_Y)
   );
 }
 if (Rect) {
