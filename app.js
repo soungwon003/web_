@@ -116,7 +116,7 @@ function MakeArc2(event) {
   const x = event.offsetX;
   const y = event.offsetY;
   if (circle == true) {
-    ctx.arc(x, y, 100, 0, Math.PI * 2);
+    ctx.arc(x, y, 50, 0, Math.PI * 2);
     ctx.stroke();
     ctx.fill();
   }
